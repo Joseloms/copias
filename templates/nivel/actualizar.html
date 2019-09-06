@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% load widget_tweaks %}
+
+{% block content %}
+<main role="main">
+
+    <div class="container text-center mt-5">
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h1 style="font-size: 28px;">Control de Fotocopias Colegio Mayor San Lorenzo V 1.0 </h1>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+
+            <div class="card col-md-2">
+                <h6 class="mt-4"><strong>Menú</strong></h6>
+                <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="{% url 'copia_lista' %}">Fotocopias</a></li>
+                        <li class="list-group-item"><a href="{% url 'nivel_lista' %}">Nivel</a></li>
+                        <li class="list-group-item"><a href="{% url 'docente_lista' %}">Docente</a></li>
+                    </ul>
+            </div>
+
+            <div class="col-md-10">
+
+                <div class="table-responsive">
+
+                    <nav aria-label="breadcrumb mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../">Niveles</a></li>
+                            <li class="breadcrumb-item"><a href="#">Editar</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ object.name }}</li>
+                        </ol>
+                    </nav>
+
+                    <div class="formulario" align="left">
+
+                        <h4>Actualizar</h4>
+
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <!-- {{ form.as_p }} -->
+                            <div class="form-group">
+                                <label for="name" class="txt_negrita">Descripción</label>
+                                {{ form.name|add_class:"form-control" }}
+                            </div>
+                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                            <a href="../" type="submit" class="btn btn-primary">Volver</a>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+    </div>
+
+</main>
+{% endblock %}
+{% block extrajs %}
+{# JS y jQuery Bootstrap #}
+{% bootstrap_javascript jquery='full' %}
+
+<script type="text/javascript">
+    $('.form-group').html(function (i, t) {
+        return t.replace('Actualmente:', '<span class="ocultar">Actualmente:</span>');
+    });
+    $('.form-group').html(function (i, t) {
+        return t.replace('Currently:', '<span class="ocultar">Currently:</span>');
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://nubecolectiva.com/favicon.ico"/>
+
+    <meta name="theme-color" content="#000000"/>
+
+    <title>Sistema de Fotocopias Colegio Mayor San Lorenzo </title>
+    {# Cargamos la librería #}
+    {% load bootstrap4 %}
+    {# CSS Bootstrap #}
+    {% bootstrap_css %}
+    {# Widget Tweaks #}
+    {% load widget_tweaks %}
+    {# Archivos #}
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+
+</head>
+<body>
+{% block navbar %}
+    {% include 'base/navbar.html' %}
+{% endblock %}
+<div class="container">
+    {% block content %}
+        <h2>Contenido base</h2>
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'base/footer.html' %}
+    {% endblock %}
+</div>
+{% block extrajs %}{% endblock %}
+</body>
+</html>
