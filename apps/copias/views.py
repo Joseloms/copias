@@ -95,13 +95,11 @@ class CopiaDetail(DetailView):
 
 class CopiaCreate(SuccessMessageMixin, CreateView):
     model = Copia
-
     fields = "__all__"
     success_message = 'Copia Registrada Correctamente !'
 
-
-def get_success_url(self):
-    return reverse('copia_lista')
+    def get_success_url(self):
+        return reverse('copia_lista')
 
 
 class CopiaUpdate(SuccessMessageMixin, UpdateView):

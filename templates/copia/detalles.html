@@ -30,7 +30,7 @@
 
                         <nav aria-label="breadcrumb mb-3">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="../">Niveles</a></li>
+                                <li class="breadcrumb-item"><a href="../">Copias</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Editar</li>
                             </ol>
                         </nav>
@@ -39,7 +39,11 @@
 
                             <h4>Detalles</h4>
 
-                            <p><span class="txt_negrita">Descripción:</span> <br> {{ object.name }}</p>
+                            <p><span class="txt_negrita">Docente:</span> <br> {{ object.docente }}</p>
+                            <p><span class="txt_negrita">Nivel:</span> <br> {{ object.nivel }}</p>
+                            <p><span class="txt_negrita">Cantidad:</span> <br> {{ object.cantidad }}</p>
+                            <p><span class="txt_negrita">Detalle:</span> <br> {{ object.detalle }}</p>
+                            <p><span class="txt_negrita">Fecha:</span> <br> {{ object.fecha }}</p>
 
                             <a href="../" type="submit" class="btn btn-primary">Volver</a>
 

@@ -31,7 +31,7 @@
 
                         <nav aria-label="breadcrumb mb-3">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="./">Niveles</a></li>
+                                <li class="breadcrumb-item"><a href="./">Docentes</a></li>
                                 <li class="breadcrumb-item active">Crear</li>
                             </ol>
                         </nav>
@@ -44,7 +44,7 @@
                                 {% csrf_token %}
                                 <!-- {{ form.as_p }} -->
                                 <div class="form-group">
-                                    <label for="name" class="txt_negrita">Descripción</label>
+                                    <label for="name" class="txt_negrita">Nombre completo</label>
                                     {{ form.name|add_class:"form-control" }}
                                 </div>
                                 <button type="submit" class="btn btn-primary">Aceptar</button>
