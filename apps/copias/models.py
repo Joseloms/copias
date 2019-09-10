@@ -25,6 +25,9 @@ class Copia(models.Model):
     detalle = models.CharField(null=True, max_length=300)
     fecha = models.DateField(verbose_name='Fecha', null=True)
 
+    class Meta:
+        ordering = ('-fecha',)
+
     def __str__(self):
         return '{}'.format(self.id)
 

@@ -19,7 +19,8 @@ from django.contrib import admin
 from django.urls import path
 
 from apps.copias.views import NivelCreate, NivelList, NivelDetail, NivelUpdate, NivelDelete, DocenteList, DocenteCreate, \
-    DocenteDelete, DocenteDetail, DocenteUpdate, CopiaCreate, CopiaDelete, CopiaDetail, CopiaList, CopiaUpdate
+    DocenteDelete, DocenteDetail, DocenteUpdate, CopiaCreate, CopiaDelete, CopiaDetail, CopiaList, CopiaUpdate, \
+    DocenteBuscadorList, DocenteBuscadorCopiaList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,6 +38,7 @@ urlpatterns = [
     path('docente/editar/<int:pk>', DocenteUpdate.as_view(template_name="docente/actualizar.html"),
          name='docente_actualizar'),
     path('docente/eliminar/<int:pk>', DocenteDelete.as_view(), name='docente_eliminar'),
+    path('docente/buscador', DocenteBuscadorList.as_view(template_name="docente/index.html"), name='docente_buscador'),
 
     path('copia/', CopiaList.as_view(template_name="copia/index.html"), name='copia_lista'),
     path('copia/detalle/<int:pk>', CopiaDetail.as_view(template_name="copia/detalles.html"),
@@ -45,5 +47,6 @@ urlpatterns = [
     path('copia/editar/<int:pk>', CopiaUpdate.as_view(template_name="copia/actualizar.html"),
          name='copia_actualizar'),
     path('copia/eliminar/<int:pk>', CopiaDelete.as_view(), name='copia_eliminar'),
+    path('copia/buscador', DocenteBuscadorCopiaList.as_view(template_name="copia/index.html"), name='copia_docente_buscador'),
 
 ]  # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
